@@ -5,7 +5,7 @@ const {Country,Activity}= require("../db")
 const getName = async (req,res)=>{
     const {nameB} = req.params;
     try{
-        const response = await Country.findOne({where:{name:{ [Op.iLike]: nameB } },  include: Activity})
+        const response = await Country.findOne({where:{name:{ [Op.iLike]: nameB } }})
         if(response){
             const result = {
                 id:response.id,
