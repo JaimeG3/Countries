@@ -20,7 +20,12 @@ const getById = async (req,res) => {
             }
             console.log("yo")
             return res.status(200).json(result);
-        }}
+        } else {
+            return res.status(404).send("no hay un pais con ese id")
+        }
+    } else {
+        return res.status(404).send("no se permiten mas de tres caracteres")
+    }
         
     }catch(error)
     {

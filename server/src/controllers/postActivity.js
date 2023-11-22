@@ -14,7 +14,7 @@ const postAct = async (req,res) => {
     if(pais.length>0){
         pais.map(async (temp) => { 
             const asociate = await Country.findAll({ where: { name:{[Op.iLike]: temp}} });
-              await newActivity.setcountry(asociate);
+              await newActivity.setCountry(asociate);
             });
     } return res.status(201).json([newActivity]);
     }catch (error){

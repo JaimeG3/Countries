@@ -9,6 +9,6 @@ const router = Router();
 router.get('/countrys',paises);
 router.get('/countrys/:idKey',getById);
 router.get('/country/:nameB',getName);
-router.post('/activities',postAct);
-router.get('/activities',getActivities);
+router.post('/activity',postAct);
+router.get('/activity',getActivities);
 module.exports = router;
