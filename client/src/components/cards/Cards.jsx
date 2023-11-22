@@ -1,9 +1,9 @@
 //import React from 'react'
 import Card from '../card/Card'
-//import "./cards.css"
+import style from "./Cards.module.css"
 const Cards = ({ countrys }) => {
     return (
-        <div>
+        <div className={style.cards}>
             {countrys.map(({ id, name, image, continente, capital,subregion, area,poblacion, actividad }) => {
                 return (
                     <Card

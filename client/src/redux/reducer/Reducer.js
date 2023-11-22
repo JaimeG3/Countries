@@ -1,10 +1,12 @@
 import{
     ALL_COUNTRYS,
+    ID_COUNTRY,
 }from "../actions/actions-Types"
 
 const initialState = {
     allCountries:[],
-    countries:[]
+    countries:[],
+    detail:[]
 }
 
 function Reducer (state = initialState,action  ){
@@ -14,6 +16,12 @@ function Reducer (state = initialState,action  ){
                 ...state,
                 countries:action.payload,
                 allCountries:action.payload,
+            }
+            
+        case  ID_COUNTRY:
+            return{
+                ...state,
+                detail:action.payload,
             }
 
      default:

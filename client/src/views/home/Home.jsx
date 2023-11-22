@@ -12,11 +12,8 @@ function Home () {
 
     return (
         <>
-        <div>  {countrys ? (
+        <div>  
         <Cards countrys={countrys} />
-      ) : (
-        <p>Cargando países...</p>
-      )}
         </div>        
         </>
 
@@ -25,3 +22,10 @@ function Home () {
 }
 
 export default Home
+/*
+{countrys ? (
+    <Cards countrys={countrys} />
+  ) : (
+    <p>Cargando países...</p>
+  )}
+  */

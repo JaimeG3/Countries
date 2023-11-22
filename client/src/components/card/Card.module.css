@@ -1,0 +1,14 @@
+.card {
+    background-color: rgba(10, 0, 0, 0.459);
+    width: 200px;
+    height: 350px;
+    border-radius: 20px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+.img{
+    width: 50%;
+    padding:20px;
+}
