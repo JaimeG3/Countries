@@ -1,5 +1,5 @@
 const axios = require("axios");
-const {Country,Activity}= require("../db")
+const {Country}= require("../db")
 
 const paises = async (req,res) => {
     try{
