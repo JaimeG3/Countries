@@ -5,6 +5,7 @@ import {useDispatch, useSelector } from 'react-redux'
 function Home () {
     const dispatch = useDispatch();
     const countrys = useSelector((state) => state?.countries)
+    const search = useSelector((state) => state?.search);
 
   useEffect(() => {
     dispatch(allCountrys());
@@ -13,7 +14,7 @@ function Home () {
     return (
         <>
         <div>  
-        <Cards countrys={countrys} />
+        <Cards countrys={search.length > 1 ? search :countrys} />
         </div>        
         </>
 

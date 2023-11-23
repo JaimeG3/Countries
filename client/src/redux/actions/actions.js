@@ -2,6 +2,7 @@ import axios from "axios"
 import {
     ALL_COUNTRYS ,
     ID_COUNTRY,
+    SEARCH,
 } from "./actions-Types"
 
 export const allCountrys = () => {
@@ -31,3 +32,17 @@ export const detail = (id) => {
         }
     }
 }
+
+    export const search = (name) => {
+        return async function(dispatch){
+            try{
+                const response = await axios.get( `http://localhost:3001/country/${name}`)
+                return dispatch({
+                    type:SEARCH,
+                    payload:response.data
+                })
+            }catch(error){
+                throw Error (error.message)
+            }
+        }
+    }

@@ -18,7 +18,7 @@ const getName = async (req,res)=>{
                 poblacion: response.poblacion
             }
             console.log("yo")
-            return res.status(200).json(result);
+            return res.status(200).json([result]);
         }else{
             return res.status(404).send("no se encontro el pais")
         }

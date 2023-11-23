@@ -1,12 +1,14 @@
 import{
     ALL_COUNTRYS,
     ID_COUNTRY,
+    SEARCH,
 }from "../actions/actions-Types"
 
 const initialState = {
     allCountries:[],
     countries:[],
-    detail:[]
+    detail:[],
+    search:[]
 }
 
 function Reducer (state = initialState,action  ){
@@ -22,6 +24,13 @@ function Reducer (state = initialState,action  ){
             return{
                 ...state,
                 detail:action.payload,
+            }
+
+        case SEARCH:
+            return{
+                ...state,
+                countries:action.payload,
+                search:action.payload,
             }
 
      default:
