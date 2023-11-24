@@ -8,9 +8,9 @@ const Card = ({ id, name, image ,continente}) => {
        
     <div className={style.card}>
     <Link to={`/detail/${id}`}>
-                <h2 className='name'>{name}</h2>
+                <h2 className={style.name}>{name}</h2>
                 <img className={style.img} src={image} />
-                <h3>{continente}</h3>
+                <h3 className={style.continente}>{continente}</h3>
             <p ></p>
             </Link>
             </div>

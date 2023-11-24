@@ -3,6 +3,9 @@ import {
     ALL_COUNTRYS ,
     ID_COUNTRY,
     SEARCH,
+    GET_ACTIVITY,
+    FILTER,
+    FILTER_ACTIVITY
 } from "./actions-Types"
 
 export const allCountrys = () => {
@@ -45,4 +48,26 @@ export const detail = (id) => {
                 throw Error (error.message)
             }
         }
+    }
+
+    export const getActivity = () => {
+        return async function(dispatch){
+            try{
+                const response = await axios.get( `http://localhost:3001/activity`)
+                return dispatch({
+                    type:GET_ACTIVITY,
+                    payload:response.data
+                })
+            }catch(error){
+                throw Error (error.message)
+            }
+        }
+    }
+
+    export const filterCards = (data) => {
+        return { type: FILTER, payload: data }
+    }
+    
+    export const filterActivity = (data) => {
+        return { type: FILTER_ACTIVITY, payload: data }
     }
