@@ -93,6 +93,30 @@ function Reducer (state = initialState,action  ){
                   countries: result,                   
                  };
                   } 
+
+        case ORDER_POBLACION:
+            if (action.payload === 'todos') {
+                const allCopy = [...state.filter];
+             return {
+                 ...state,
+                 countries:[...allCopy]
+             }}
+                if (action.payload === 'poblacionMin') {
+                const allCopy = [...state.countries];
+                const result = allCopy.sort((a, b) => a.poblacion - (b.poblacion));
+                return {
+                  ...state,
+                  countries: [...result]
+                  };
+                   }
+                if (action.payload === 'poblacionMax') {
+                const allCopy = [...state.countries];
+                const result = allCopy.sort((a, b) => b.poblacion - (a.poblacion));
+                return {
+                    ...state,
+                    countries: [...result]
+                    };
+                     }
     
 
         default:

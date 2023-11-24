@@ -31,7 +31,7 @@ function Filter() {
         dispatch(orderAyZ(event.target.value));
     }
 
-    const handleAttack = (event) => {
+    const handlePoblacion = (event) => {
         dispatch(orderPoblacion(event.target.value))
     }
   
@@ -74,12 +74,13 @@ options={[
 >
 </Select>
 <Select
-name="orderAttack"
+name="orderPoblacion"
 options={[
-    { value: "ataqueMin", label: "Min" },
-    { value: "ataqueMax", label: "MAx" },
+    { value: "todos", label: "todos" },
+    { value: "poblacionMin", label: "Min" },
+    { value: "poblacionMax", label: "Max" },
   ]}
-  onChange={handleAttack}
+  onChange={handlePoblacion}
 >
 </Select>
       </div>
