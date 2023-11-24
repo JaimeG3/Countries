@@ -46,9 +46,11 @@ function Reducer (state = initialState,action  ){
 
         case FILTER:
                 let filteredContinent = [];
-                if (action.payload ) {
+                if (action.payload) {
                     filteredContinent = [...state.allCountries].filter((country) => country.continente === action.payload)
-                    } 
+                    } else {
+                        filteredContinent = [...state.allCountries]
+                    }
                     return {
                         ...state,
                         countries: [...filteredContinent],

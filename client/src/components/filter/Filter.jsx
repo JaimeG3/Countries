@@ -40,21 +40,27 @@ function Filter() {
       
       <Select
   name="FilterContinent"
-  options={uniqueContinents.map((continent) => ({
+  options={[
+    { value: '', label: 'Select Continent' },
+    ...uniqueContinents.map((continent) => ({
     value: continent,
     label: continent,
-  }))}
+  })) ]} 
   onChange={handleChange}
 />
 
 
 <Select
-  name="filterActivity"
-  options={allActivity.map((type) => ({
-    value: type.name,
-    label: type.name,
-  }))}
+   name="filterActivity"
+   options={[
+     { value: '', label: 'Select Activity' }, 
+     ...allActivity.map((type) => ({
+       value: type.name,
+       label: type.name,
+     }))
+   ]}
   onChange={allTypes}
+  
 />
 
 <Select

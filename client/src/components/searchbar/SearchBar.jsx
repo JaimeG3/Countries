@@ -1,10 +1,11 @@
 
 import {useState} from 'react'
-import {useDispatch} from "react-redux"
+import {useDispatch,useSelector} from "react-redux"
 import { useNavigate } from 'react-router-dom'
-import { search,allCountrys } from '../../redux/actions/actions' 
+import { search,allCountrys, filterCards} from '../../redux/actions/actions' 
 function Search () {
     const [name, setName] = useState("");
+    const filtro = useSelector((state) => state?.filter);
     const dispatch = useDispatch();
     const navigate = useNavigate()
     //const search = useSelector((state)=>state?.searchPoke)
@@ -22,10 +23,12 @@ function Search () {
     const reset = () => { 
       setName('');
     }
+
   
     const all = () => {
       console.log("prueba")
       dispatch(allCountrys());
+      dispatch(filterCards(''));
     }
   /*
     const clean = () => {
