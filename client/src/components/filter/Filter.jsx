@@ -1,5 +1,5 @@
 import {  useDispatch,useSelector } from "react-redux";
-import { getActivity, filterCards,filterActivity} from "../../redux/actions/actions";
+import { getActivity, filterCards,filterActivity,orderAyZ,orderPoblacion} from "../../redux/actions/actions";
 import Select from "../select/Select.jsx";
 import { useEffect } from "react";
 import style from "./filter.module.css"
@@ -32,7 +32,7 @@ function Filter() {
     }
 
     const handleAttack = (event) => {
-        dispatch(orderAttack(event.target.value))
+        dispatch(orderPoblacion(event.target.value))
     }
   
     return (

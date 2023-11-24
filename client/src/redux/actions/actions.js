@@ -5,7 +5,9 @@ import {
     SEARCH,
     GET_ACTIVITY,
     FILTER,
-    FILTER_ACTIVITY
+    FILTER_ACTIVITY,
+    ORDER_A_Z,
+    ORDER_POBLACION
 } from "./actions-Types"
 
 export const allCountrys = () => {
@@ -70,4 +72,12 @@ export const detail = (id) => {
     
     export const filterActivity = (data) => {
         return { type: FILTER_ACTIVITY, payload: data }
+    }
+
+    export const orderAyZ = (order) =>{
+        return { type: ORDER_A_Z, payload: order}
+    }
+    
+    export const orderPoblacion = (order) =>{
+        return{ type: ORDER_POBLACION, payload: order }
     }

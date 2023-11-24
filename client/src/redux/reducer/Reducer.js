@@ -5,6 +5,8 @@ import{
     GET_ACTIVITY,
     FILTER,
     FILTER_ACTIVITY,
+    ORDER_A_Z,
+    ORDER_POBLACION
 }from "../actions/actions-Types"
 
 const initialState = {
@@ -38,7 +40,7 @@ function Reducer (state = initialState,action  ){
                 search:action.payload,
             }
 
-         case GET_ACTIVITY:
+        case GET_ACTIVITY:
                 return{
                     ...state,
                     activity:action.payload
@@ -47,17 +49,17 @@ function Reducer (state = initialState,action  ){
         case FILTER:
                 let filteredContinent = [];
                 if (action.payload) {
-                    filteredContinent = [...state.allCountries].filter((country) => country.continente === action.payload)
-                    } else {
-                        filteredContinent = [...state.allCountries]
-                    }
-                    return {
-                        ...state,
-                        countries: [...filteredContinent],
-                        filter:[...filteredContinent]
-                    }
+                 filteredContinent = [...state.allCountries].filter((country) => country.continente === action.payload)
+                } else {
+                    filteredContinent = [...state.allCountries]
+                }
+                return {
+                    ...state,
+                    countries: [...filteredContinent],
+                    filter:[...filteredContinent]
+                }
 
-             case FILTER_ACTIVITY:
+        case FILTER_ACTIVITY:
                 let filteredActivity = [];
                 if (state.filter && state.filter.length > 0) {
                     filteredActivity = state.filter.filter((country) => country.actividad === action.payload);
@@ -68,10 +70,33 @@ function Reducer (state = initialState,action  ){
                     ...state,
                     countries: [...filteredActivity],
                 };
+            
+        case ORDER_A_Z:
+                if (action.payload === 'todos') {
+                   const allCopy = [...state.filter];
+                return {
+                    ...state,
+                    countries:[...allCopy]
+                }
+                 }
+                 if (action.payload === 'A') {
+                   const result = [...state.countries].sort((a, b) => a.name.localeCompare(b.name));
+                   return {
+                     ...state,
+                     countries: result,
+                   };
+                 }                  
+                else if (action.payload === 'Z') {
+                const result = [...state.countries].sort((a, b) => b.name.localeCompare(a.name));
+                return {
+                  ...state,
+                  countries: result,                   
+                 };
+                  } 
     
 
-     default:
-        return state; 
+        default:
+            return state; 
     }
 
 }
