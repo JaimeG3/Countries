@@ -6,7 +6,8 @@ import{
     FILTER,
     FILTER_ACTIVITY,
     ORDER_A_Z,
-    ORDER_POBLACION
+    ORDER_POBLACION,
+    FORM
 }from "../actions/actions-Types"
 
 const initialState = {
@@ -117,6 +118,12 @@ function Reducer (state = initialState,action  ){
                     countries: [...result]
                     };
                      }
+        case FORM:
+            return{
+                ...state,
+                activity:action.payload,
+                countries:action.payload
+            }
     
 
         default:

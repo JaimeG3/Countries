@@ -6,4 +6,5 @@ export const GET_ACTIVITY = "GET_ACTIVITY"
 export const FILTER_ACTIVITY = "FILTER_ACTIVITY"
 export const ORDER_A_Z = "ORDER_A_Z"
 export const ORDER_POBLACION = "ORDER_POBLACION"
+export const FORM = "FORM"
 

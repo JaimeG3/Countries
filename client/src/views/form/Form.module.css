@@ -1,0 +1,42 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-image: url(../../../assets/img/ash-pokemon.png);
+     background-size: 10%;
+  }
+  
+  /* Estilos para los campos de entrada de texto */
+  input {
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+    margin-bottom: 1px;
+  }
+  
+  /* Estilos para los mensajes de error */
+  span {
+    color: rgb(87, 3, 3);
+    margin: 5px 0;
+    font-weight: 900px;
+  }
+  
+  /* Estilos para el botón de envío */
+  button {
+    background-color: #051b33;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;;
+  }

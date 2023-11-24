@@ -7,7 +7,8 @@ import {
     FILTER,
     FILTER_ACTIVITY,
     ORDER_A_Z,
-    ORDER_POBLACION
+    ORDER_POBLACION,
+    FORM
 } from "./actions-Types"
 
 export const allCountrys = () => {
@@ -80,4 +81,18 @@ export const detail = (id) => {
     
     export const orderPoblacion = (order) =>{
         return{ type: ORDER_POBLACION, payload: order }
+    }
+
+    export const create =(info)=> {
+        return async function(dispatch){
+            try{
+                const response = await axios.post("http://localhost:3001/activity", info)
+                return dispatch({
+                    type:FORM,
+                    payload:response.data
+                })
+            }catch(error){
+                throw Error(error.message)
+            }
+        }
     }
