@@ -58,10 +58,11 @@ const handleSubmit = (e) => {
     <span> {errors.name }</span>
     <p></p>
     <input type="number" name="dificultad" placeholder="dificultad" onChange={handleChange} />
+    <span>{errors.dificultad}</span>
     <input type="number" name="duracion" placeholder="duracion" onChange={handleChange} />
-    <span>{errors.hp}</span>
+    <span>{errors.duracion}</span>
     <input type="text" name="temporada" placeholder="temporada" onChange={handleChange} />
-    <span>{errors.attack}</span>
+    <span>{errors.temporada}</span>
       <label>tipos:
         <select
         multiple
@@ -71,8 +72,8 @@ const handleSubmit = (e) => {
           {countries.map(types => <option name={types.name} key={types.name} value={types.name}>{types.name}</option>)}
         </select>
       </label>
-    {errors.types && <p>{errors.types}</p>}
-    {Object.keys(errors ).every((key) => !errors[key]) && <button type='submit' onChange={handleSubmit}>Capturar</button>}
+    {errors.pais && <p>{errors.pais}</p>}
+    {Object.keys(errors ).every((key) => !errors[key]) && <button type='submit' onChange={handleSubmit}>Crear</button>}
 </form>
 </div>
 </>
