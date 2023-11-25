@@ -16,7 +16,7 @@ const Cards = ({ countrys }) => {
                         subregion={subregion}
                         area={area}
                         poblacion={poblacion}
-                        actividad={actividad}
+                        actividad={[actividad]}
                     />
                 )
             })
