@@ -122,7 +122,7 @@ function Reducer (state = initialState,action  ){
             return{
                 ...state,
                 activity:action.payload,
-                countries:action.payload
+                countries:action.payload,
             }
     
 

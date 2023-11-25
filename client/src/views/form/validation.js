@@ -19,7 +19,7 @@ const validation = (activity)=>{
     errors.temporada = 'La temporada debe ser otoño, invierno, primavera o verano';
   }
 
-  if (!activity || !activity.pais || !Array.isArray(activity.pais) || activity.pais.length === 0) {
+  if (!activity || !activity.asPais ||   activity.asPais.length === 0) {
     errors.pais = 'Seleccione al menos un país';
   }
 

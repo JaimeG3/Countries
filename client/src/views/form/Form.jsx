@@ -17,14 +17,19 @@ const [activity,setActivity] = useState({
 })
 const [errors, setErrors] = useState({})
 const dispatch = useDispatch()
-const countries = useSelector((state) => state?.countries)
+const countries = useSelector((state) => state?.allCountries)
 
 useEffect(() => {
     dispatch(allCountrys());
   }, [dispatch]);
 
 const handleChange = (event) => {
-  if (event.target.name === 'Pais') {
+    setErrors({
+        ...errors,
+        [event.target.name]: '',
+      });
+
+  if (event.target.name === 'asPais') {
     const selectedCountry = Array.from(event.target.selectedOptions, (option) => option.value);
     setActivity({
       ...activity,
@@ -42,11 +47,17 @@ const handleChange = (event) => {
     [event.target.name]: event.target.value,
   }));
 };
+
 const handleSubmit = (e) => {
   e.preventDefault();
-  dispatch(create(activity));
-  setActivity("")
-  navigate("/home")
+    dispatch(create(activity));
+    setActivity({
+      name: "",
+      dificultad: "",
+      duracion: "",
+      temporada: "",
+      asPais: [],
+    });
 }
 
   return (
@@ -66,13 +77,13 @@ const handleSubmit = (e) => {
       <label>tipos:
         <select
         multiple
-        name='pais'
+        name='asPais'
         value={activity.asPais}
         onChange={handleChange} >
           {countries.map(types => <option name={types.name} key={types.name} value={types.name}>{types.name}</option>)}
         </select>
       </label>
-    {errors.pais && <p>{errors.pais}</p>}
+    {errors.asPais && <p>{errors.asPais}</p>}
     {Object.keys(errors ).every((key) => !errors[key]) && <button type='submit' onChange={handleSubmit}>Crear</button>}
 </form>
 </div>
