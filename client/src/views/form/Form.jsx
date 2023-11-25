@@ -1,13 +1,11 @@
 import {useEffect,useState} from 'react'
 import { useDispatch,useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
 import { create,allCountrys } from "../../redux/actions/actions"
 import validation from './validation.js';
 import styles from "./Form.module.css"
 import Select from "../../components/select/select"
 
 function Form () {
-  const navigate = useNavigate()
 const [activity,setActivity] = useState({ 
     name:"",
     dificultad:"",
@@ -19,9 +17,6 @@ const [errors, setErrors] = useState({})
 const dispatch = useDispatch()
 const countries = useSelector((state) => state?.allCountries)
 
-useEffect(() => {
-    dispatch(allCountrys());
-  }, [dispatch]);
 
 const handleChange = (event) => {
     setErrors({
@@ -48,16 +43,12 @@ const handleChange = (event) => {
   }));
 };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+const handleSubmit = () => {  
+    // Enviar la acción para crear la actividad
     dispatch(create(activity));
-    setActivity({
-      name: "",
-      dificultad: "",
-      duracion: "",
-      temporada: "",
-      asPais: [],
-    });
+    
+    
+      console.log("Nuevo estado de activity:", setActivity);
 }
 
   return (

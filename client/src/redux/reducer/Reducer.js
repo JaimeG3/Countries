@@ -65,7 +65,7 @@ function Reducer (state = initialState,action  ){
                 if (state.filter && state.filter.length > 0) {
                     filteredActivity = state.filter.filter((country) => country.actividad.split(',').includes(action.payload));
                 } else {
-                    filteredActivity = state.countries.filter((country) => country.actividad.split(',').includes(action.payload));
+                    filteredActivity = state.allCountries.filter((country) => country.actividad.split(',').includes(action.payload));
                 }
                 return {
                     ...state,

@@ -1,9 +1,18 @@
 import Search from "../searchbar/SearchBar"
 import { useLocation,useNavigate } from 'react-router-dom'
+import { useEffect} from 'react'
+import {useDispatch } from 'react-redux'
+import {allCountrys} from "../../redux/actions/actions"
 import style from "./Nav.module.css"
 function Nav() {
     const pathname = useLocation()
     const navigate = useNavigate()
+    const dispatch = useDispatch();
+
+
+    useEffect(() => {
+        dispatch(allCountrys());
+      }, [dispatch]);
 
     const navigateChange = () => {
         navigate("/home")
