@@ -22,6 +22,14 @@ function Home () {
     dispatch(allCountrys());
   }, [dispatch]);
 
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [search]);
+
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [countrys]);
+
     return (
         <>
         <div>  
