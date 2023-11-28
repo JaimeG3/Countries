@@ -1,12 +1,22 @@
 import {allCountrys} from "../../redux/actions/actions"
-import { useEffect} from 'react'
+import { useEffect,useState} from 'react'
 import Cards from '../../components/cards/Cards'
 import Filter from "../../components/filter/Filter"
+import Paginado from "../../components/paginado/paginado"
 import {useDispatch, useSelector } from 'react-redux'
 function Home () {
     const dispatch = useDispatch();
     const countrys = useSelector((state) => state?.countries)
     const search = useSelector((state) => state?.search);
+
+    const COUNTRY_PER_PAGE = 12;
+    const totalCountrys = countrys?.length;
+    const totalPage = Math.ceil(totalCountrys / COUNTRY_PER_PAGE);
+    const [currentPage, setCurrentPage] = useState(0);
+  
+    const startCountry = currentPage * COUNTRY_PER_PAGE;
+    const endCountry = startCountry + COUNTRY_PER_PAGE;
+    const countryToDisplay = countrys?.slice(startCountry, endCountry);
 
   useEffect(() => {
     dispatch(allCountrys());
@@ -15,8 +25,9 @@ function Home () {
     return (
         <>
         <div>  
-            <Filter></Filter>
-        <Cards countrys={search.length > 1 ? search :countrys} />
+            <Filter  totalPage={totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage}></Filter>
+            <Paginado totalPage={totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Cards countrys={search.length > 1 ? search :countryToDisplay} />
         </div>        
         </>
 
