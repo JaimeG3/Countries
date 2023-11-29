@@ -37,6 +37,7 @@ function Home () {
             <Paginado totalPage={totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         <Cards countrys={search.length > 1 ? search :countryToDisplay} />
         {countrys.length === 0 && <p>No se encontraron países o actividades. ¡Intenta con diferentes filtros!</p>}
+        {search === null && <p>No se encontraron países o actividades. ¡Intenta con diferentes filtros!</p>}
         </div>        
         </>
 

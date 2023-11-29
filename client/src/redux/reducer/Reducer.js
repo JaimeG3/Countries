@@ -7,7 +7,8 @@ import{
     FILTER_ACTIVITY,
     ORDER_A_Z,
     ORDER_POBLACION,
-    FORM
+    FORM,
+    HANDLE_ERROR
 }from "../actions/actions-Types"
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
     search:[],
     activity:[],
     filter:[],
+    error:null,
 }
 
 function Reducer (state = initialState,action  ){
@@ -39,6 +41,7 @@ function Reducer (state = initialState,action  ){
                 ...state,
                 countries:action.payload,
                 search:action.payload,
+                error: null,
             }
 
         case GET_ACTIVITY:
@@ -124,6 +127,12 @@ function Reducer (state = initialState,action  ){
                 activity:action.payload,
                 countries:action.payload,
             }
+
+        case HANDLE_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+      };
             
     
 

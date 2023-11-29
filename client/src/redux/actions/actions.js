@@ -9,7 +9,7 @@ import {
     ORDER_A_Z,
     ORDER_POBLACION,
     FORM,
-    SAVE_PREVIOUS_STATE
+    HANDLE_ERROR
 } from "./actions-Types"
 
 export const allCountrys = () => {
@@ -48,10 +48,10 @@ export const detail = (id) => {
                     type:SEARCH,
                     payload:response.data
                 })
-            }catch(error){
-                throw Error (error.message)
-            }
-        }
+            }catch (error) {
+                dispatch(handleError(error.message));
+              }
+            };
     }
 
     export const getActivity = () => {
@@ -98,9 +98,7 @@ export const detail = (id) => {
         }
     }
 
-    export const savePreviousState = (previousState) => {
-        return {
-          type: SAVE_PREVIOUS_STATE,
-          payload: previousState,
-        };
-      };
+    export const handleError = (errorMessage) => ({
+        type: HANDLE_ERROR,
+        payload: errorMessage,
+      });

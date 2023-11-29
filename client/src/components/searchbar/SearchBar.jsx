@@ -2,20 +2,28 @@
 import {useState,useEffect} from 'react'
 import {useDispatch,useSelector} from "react-redux"
 import { useNavigate } from 'react-router-dom'
-import { search,allCountrys, filterCards} from '../../redux/actions/actions' 
+import { search,allCountrys, filterCards,handleError} from '../../redux/actions/actions' 
 function Search () {
     const [name, setName] = useState("");
     const filtro = useSelector((state) => state?.countries);
+    const error = useSelector((state) => state?.error);
     const dispatch = useDispatch();
     const navigate = useNavigate()
     //const search = useSelector((state)=>state?.searchPoke)
+
+    const handleSearch = (name) => {
+        dispatch(search(name));
+      };
     
     const handleOnclick = (name) => {
-          dispatch(search(name));
+        try{
+            handleSearch(name);
           navigate("/home")
-        
+        } catch (error) {
+            dispatch(handleError(error.message));
+          }
     }
-  
+        
     const handleName = (event) => {
         setName(event.target.value)
     }
@@ -49,6 +57,7 @@ function Search () {
         <div>
             <input  type="search" onChange={handleName} value={name} placeholder="search country"/> 
             <button onClick={() => { handleOnclick(name); setName(name) }}>search</button>
+            {error && <p>no se encontro ningun pais</p>}
             <button onClick={reset}>reset</button>
             <button onClick ={all}>All</button>
         </div>
