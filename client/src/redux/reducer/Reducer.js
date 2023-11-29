@@ -124,6 +124,7 @@ function Reducer (state = initialState,action  ){
                 activity:action.payload,
                 countries:action.payload,
             }
+            
     
 
         default:

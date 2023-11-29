@@ -7,4 +7,5 @@ export const FILTER_ACTIVITY = "FILTER_ACTIVITY"
 export const ORDER_A_Z = "ORDER_A_Z"
 export const ORDER_POBLACION = "ORDER_POBLACION"
 export const FORM = "FORM"
+export const SAVE_PREVIOUS_STATE = "SAVE_PREVIOUS_STATE"
 

@@ -8,7 +8,8 @@ import {
     FILTER_ACTIVITY,
     ORDER_A_Z,
     ORDER_POBLACION,
-    FORM
+    FORM,
+    SAVE_PREVIOUS_STATE
 } from "./actions-Types"
 
 export const allCountrys = () => {
@@ -96,3 +97,10 @@ export const detail = (id) => {
             }
         }
     }
+
+    export const savePreviousState = (previousState) => {
+        return {
+          type: SAVE_PREVIOUS_STATE,
+          payload: previousState,
+        };
+      };
