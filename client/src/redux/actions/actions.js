@@ -9,7 +9,8 @@ import {
     ORDER_A_Z,
     ORDER_POBLACION,
     FORM,
-    HANDLE_ERROR
+    HANDLE_ERROR,
+    CLEAR_ERROR
 } from "./actions-Types"
 
 export const allCountrys = () => {
@@ -102,3 +103,9 @@ export const detail = (id) => {
         type: HANDLE_ERROR,
         payload: errorMessage,
       });
+
+      export const clearError = () => {
+        return {
+          type: CLEAR_ERROR,
+        };
+      };

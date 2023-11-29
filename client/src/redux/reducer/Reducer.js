@@ -8,7 +8,8 @@ import{
     ORDER_A_Z,
     ORDER_POBLACION,
     FORM,
-    HANDLE_ERROR
+    HANDLE_ERROR,
+    CLEAR_ERROR
 }from "../actions/actions-Types"
 
 const initialState = {
@@ -133,6 +134,12 @@ function Reducer (state = initialState,action  ){
         ...state,
         error: action.payload,
       };
+
+      case CLEAR_ERROR:
+        return{
+            ...state,
+            error:null
+        }
             
     
 
