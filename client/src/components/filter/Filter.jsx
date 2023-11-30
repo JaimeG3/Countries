@@ -7,6 +7,8 @@ import style from "./filter.module.css"
 function Filter() {
     const allActivity = useSelector((state) => state?.activity);
     const allContinent = useSelector((state) => state?.allCountries);
+    
+
     const dispatch = useDispatch();
 
     const uniqueContinents = [...new Set(allContinent.map(country => country.continente))];

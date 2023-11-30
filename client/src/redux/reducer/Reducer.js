@@ -66,7 +66,10 @@ function Reducer (state = initialState,action  ){
 
         case FILTER_ACTIVITY:
                 let filteredActivity = [];
-                if (state.filter && state.filter.length > 0) {
+                if(action.payload === ''){
+                    filteredActivity= [...state.filter]
+                }
+                else if (state.filter && state.filter.length > 0) {
                     filteredActivity = state.filter.filter((country) => country.actividad.split(',').includes(action.payload));
                 } else {
                     filteredActivity = state.allCountries.filter((country) => country.actividad.split(',').includes(action.payload));
@@ -74,6 +77,7 @@ function Reducer (state = initialState,action  ){
                 return {
                     ...state,
                     countries: [...filteredActivity],
+                    
                 };
             
         case ORDER_A_Z:
