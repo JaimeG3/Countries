@@ -16,7 +16,7 @@ const getById = async (req,res) => {
                 subregion: response.subregion,
                 area: response.area,
                 poblacion: response.poblacion,
-                actividad: response['country'].map(act => `${act.name}  ${act.dificultad}, ${act.duracion},  ${act.temporada}`).join(",")
+                actividad: response['country'].map(act => `${act.name},  dificultad :${act.dificultad}, duracion :${act.duracion},  temporada :${act.temporada}`).join(",")
             }
             console.log("yo")
             return res.status(200).json(result);
