@@ -17,7 +17,7 @@ const allCountry = async(req,res)=>{
             subregion: country.subregion,
             area: country.area,
             poblacion: country.poblacion,
-            actividad: country['country'].map(act => act.name).join(","),
+            actividad: country['country'].map(act => `${act.name} , ${act.dificultad},  ${act.duracion},  ${act.temporada}`).join(","),
         }));
 
         return res.status(200).json(response);

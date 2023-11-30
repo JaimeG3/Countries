@@ -13,9 +13,9 @@ function Details() {
     }, [idKey])
 
     return (
-        <div className='back'>
-            <div className='detailsContainer' >
-                <img src={country?.image} alt={country?.name}/>
+            <div className='back'>
+              <div className='detailsContainer'>
+                <img src={country?.image} alt={country?.name} />
                 <h2>ID: {country?.id}</h2>
                 <h2>Nombre: {country?.name}</h2>
                 <h2>continente: {country?.continente}</h2>
@@ -23,11 +23,19 @@ function Details() {
                 <h2>subregion: {country?.subregion}</h2>
                 <h2>area: {country?.area}</h2>
                 <h2>poblacion: {country?.poblacion}</h2>
-                <h2>actividad: {country?.actividad}</h2>
-            </div>
-         
+                <div className={style.actividades}>
+          <h2>Actividades:</h2>
+          <ul>
+          {country?.actividad && country?.actividad.split(/,(?=\S)/).map((actividad, index) => (
+      <li key={index}>
+        Nombre: <strong>{actividad.trim()}</strong>
+      </li>
+    ))}
+          </ul>
         </div>
-    )
+            </div>
+            </div>
+          );
 }
 
 export default Details

@@ -1,0 +1,22 @@
+.actividades {
+    margin-top: 20px;
+  }
+  
+  .actividades h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .actividades ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .actividades li {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+  }
+
+  .actividades li strong {
+    font-weight: bold;
+  }

@@ -70,14 +70,19 @@ function Reducer (state = initialState,action  ){
                     filteredActivity= [...state.filter]
                 }
                 else if (state.filter && state.filter.length > 0) {
-                    filteredActivity = state.filter.filter((country) => country.actividad.split(',').includes(action.payload));
-                } else {
-                    filteredActivity = state.allCountries.filter((country) => country.actividad.split(',').includes(action.payload));
-                }
+                    filteredActivity = state.filter.filter((country) =>
+                      country.actividad
+                        .split(',')
+                        .some((activity) => activity.includes(action.payload))
+                    );
+                  } else {
+                    filteredActivity = state.allCountries.filter((country) =>
+                      country.actividad.split(',').some((activity) => activity.trim().split('  ').includes(action.payload))
+                    );
+                  }
                 return {
                     ...state,
                     countries: [...filteredActivity],
-                    
                 };
             
         case ORDER_A_Z:
