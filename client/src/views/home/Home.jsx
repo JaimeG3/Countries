@@ -10,13 +10,14 @@ function Home () {
     const search = useSelector((state) => state?.search);
 
     const COUNTRY_PER_PAGE = 12;
-    const totalCountrys = countrys?.length;
+    const totalCountrys = countrys?.length || search?.length;
     const totalPage = Math.ceil(totalCountrys / COUNTRY_PER_PAGE);
     const [currentPage, setCurrentPage] = useState(0);
   
     const startCountry = currentPage * COUNTRY_PER_PAGE;
     const endCountry = startCountry + COUNTRY_PER_PAGE;
     const countryToDisplay = countrys?.slice(startCountry, endCountry);
+    const searchToDisplay = search?.slice(startCountry, endCountry)
 
   useEffect(() => {
     dispatch(allCountrys());
@@ -35,7 +36,7 @@ function Home () {
         <div>  
             <Filter  totalPage={totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage}></Filter>
             <Paginado totalPage={totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <Cards countrys={search.length > 1 ? search :countryToDisplay} />
+        <Cards countrys={search.length > 1 ? searchToDisplay :countryToDisplay} />
         {countrys.length === 0 && <p>No se encontraron países o actividades. ¡Intenta con diferentes filtros!</p>}
         {search === null && <p>No se encontraron países o actividades. ¡Intenta con diferentes filtros!</p>}
         </div>        
