@@ -8,7 +8,7 @@ function Home () {
     const dispatch = useDispatch();
     const countrys = useSelector((state) => state?.countries)
 
-    const COUNTRY_PER_PAGE = 12;
+    const COUNTRY_PER_PAGE = 10;
     const totalCountrys = countrys?.length 
     const totalPage = Math.ceil(totalCountrys / COUNTRY_PER_PAGE);
     const [currentPage, setCurrentPage] = useState(0);

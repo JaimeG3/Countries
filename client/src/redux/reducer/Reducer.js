@@ -67,8 +67,10 @@ function Reducer (state = initialState,action  ){
         case FILTER_ACTIVITY:
                 let filteredActivity = [];
                 if(action.payload === ''){
-                    filteredActivity= [...state.filter]
-                }
+                    if(state.filter.length>0){
+                    filteredActivity= [...state.filter]}else{
+                        filteredActivity= [...state.allCountries]
+                    }               }
                 else if (state.filter && state.filter.length > 0) {
                     filteredActivity = state.filter.filter((country) =>
                       country.actividad
