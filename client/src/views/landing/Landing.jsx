@@ -6,12 +6,14 @@ function Landing() {
         navigate("/home")
     }
   return (
-    < div className= {style.image}>
-      <div className= {style.container}>
-    <h1  >bienvenidos</h1>
-    <button  onClick={fNavigate}>ingreso al mundo</button>
+    <>
+    <div className= {style.container}>
+      <div className= { style.image}>
+      <h1 className= { style.hl} >bienvenidos</h1>
+      <button  onClick={fNavigate}>ingreso al mundo</button>
     </div>
     </div>
+    </>
   )
 }
 

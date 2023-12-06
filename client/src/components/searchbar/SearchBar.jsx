@@ -2,7 +2,8 @@
 import {useState,useEffect} from 'react'
 import {useDispatch,useSelector} from "react-redux"
 import { useNavigate } from 'react-router-dom'
-import { search,allCountrys, filterCards,handleError,clearError} from '../../redux/actions/actions' 
+import { search,allCountrys, filterCards,handleError,clearError} from '../../redux/actions/actions'
+import style from "../searchbar/searchBar.module.css" 
 function Search () {
     const [name, setName] = useState("");
     const filtro = useSelector((state) => state?.countries);
@@ -18,7 +19,6 @@ function Search () {
     const handleOnclick = (name) => {
         try{
             handleSearch(name);
-          navigate("/home")
         } catch (error) {
             dispatch(handleError(error.message));
           }
@@ -56,13 +56,13 @@ function Search () {
     */
   
     return (
-        <div>
-            <input  type="search" onChange={handleName} value={name} placeholder="search country"/> 
-            <button onClick={() => { handleOnclick(name); setName(name) }}>search</button>
-            {error && <p>no se encontro ningun pais</p>}
-            <button onClick={reset}>reset</button>
-            <button onClick ={all}>All</button>
-        </div>
+      <div className={style.searchContainer}>
+      <input type="search" onChange={handleName} value={name} placeholder="Search Country" />
+      <button onClick={() => { handleOnclick(name); setName(name) }}>Search</button>
+      {error && <p>No se encontró ningún país</p>}
+      <button onClick={reset}>Reset</button>
+      <button onClick={all}>All</button>
+    </div>
     )
 
 }

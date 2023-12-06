@@ -1,4 +1,4 @@
-import {allCountrys} from "../../redux/actions/actions"
+import {allCountrys,navBack} from "../../redux/actions/actions"
 import { useEffect,useState} from 'react'
 import Cards from '../../components/cards/Cards'
 import Filter from "../../components/filter/Filter"
@@ -17,9 +17,7 @@ function Home () {
     const endCountry = startCountry + COUNTRY_PER_PAGE;
     const countryToDisplay = countrys?.slice(startCountry, endCountry);
 
-  useEffect(() => {
-    dispatch(allCountrys());
-  }, [dispatch]);
+  
 
   
 

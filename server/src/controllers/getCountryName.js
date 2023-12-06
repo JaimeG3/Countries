@@ -5,7 +5,7 @@ const {Country,Activity}= require("../db")
 const getName = async (req,res)=>{
     const {nameB} = req.params;
     try{
-        const response = await Country.findAll({where:{name:{ [Op.iLike]: `${nameB}%` } }})
+        const response = await Country.findAll({where:{name:{ [Op.iLike]: `${nameB}%`  }}, include: { model: Activity , as: 'country' } })
         if(response.length>0){
             const results = response.map(country => ({
                 id: country.id,
@@ -15,7 +15,8 @@ const getName = async (req,res)=>{
                 capital: country.capital,
                 subregion: country.subregion,
                 area: country.area,
-                poblacion: country.poblacion
+                poblacion: country.poblacion,
+                actividad: country['country'].map(act => `${act.name} , ${act.dificultad},  ${act.duracion},  ${act.temporada}`).join(","),
             }));
             console.log("yo")
             return res.status(200).json(results);

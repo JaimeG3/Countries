@@ -9,4 +9,5 @@ export const ORDER_POBLACION = "ORDER_POBLACION"
 export const FORM = "FORM"
 export const HANDLE_ERROR = "HANDLE_ERROR"
 export const CLEAR_ERROR = "CLEAR_ERROR"
+export const BACK = "BACK"
 

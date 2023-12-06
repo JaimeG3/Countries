@@ -55,7 +55,8 @@ function Filter() {
 <Select
    name="filterActivity"
    options={[
-     { value: '', label: 'Select Activity' }, 
+     { value: '', label: 'Select Activity' },
+     { value: '1', label: 'last search' }, 
      ...allActivity.map((type) => ({
        value: type.name,
        label: type.name,

@@ -9,7 +9,8 @@ import{
     ORDER_POBLACION,
     FORM,
     HANDLE_ERROR,
-    CLEAR_ERROR
+    CLEAR_ERROR,
+    BACK
 }from "../actions/actions-Types"
 
 const initialState = {
@@ -19,6 +20,7 @@ const initialState = {
     search:[],
     activity:[],
     filter:[],
+    filteredHistory:[],
     error:null,
 }
 
@@ -67,17 +69,29 @@ function Reducer (state = initialState,action  ){
         case FILTER_ACTIVITY:
                 let filteredActivity = [];
                 if(action.payload === ''){
-                    if(state.filter.length>0){
-                    filteredActivity= [...state.filter]}else{
+                   if (state.filter.length>0) {
+                        filteredActivity= [...state.filter]
+                    }
+                    else {
                         filteredActivity= [...state.allCountries]
-                    }               }
-                else if (state.filter && state.filter.length > 0) {
+                    } }
+                    else if (action.payload === '1'){
+                        if(state.search.length>0){
+                            filteredActivity= [...state.search] } 
+                    } else if (state.filter && state.filter.length > 0) {
                     filteredActivity = state.filter.filter((country) =>
                       country.actividad
                         .split(',')
                         .some((activity) => activity.includes(action.payload))
                     );
-                  } else {
+                  }  else if (state.search && state.search.length > 0) {
+                    filteredActivity = state.search.filter((country) =>
+                      country.actividad
+                        .split(',')
+                        .some((activity) => activity.includes(action.payload))
+                    );
+                  }  
+                  else {
                     filteredActivity = state.allCountries.filter((country) =>
                       country.actividad.split(',').some((activity) => activity.trim().split('  ').includes(action.payload))
                     );
@@ -151,7 +165,8 @@ function Reducer (state = initialState,action  ){
             ...state,
             error:null
         }
-            
+
+      
     
 
         default:

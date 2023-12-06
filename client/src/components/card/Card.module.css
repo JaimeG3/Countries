@@ -1,21 +1,38 @@
+/* TuArchivoDeEstilos.module.css */
+
 .card {
-    background-color: rgba(10, 0, 0, 0.459);
-    width: 200px;
-    height: 350px;
-    border-radius: 20px;
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: medium;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-}
-.img{
-    width: 50%;
-    padding:20px;
-}
-.name{
-    color: black;
-}
-.continente{
-    color: rgba(0, 0, 0, 0.74);
-    background-color: grey;
-}
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .name {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  
+  .img {
+    width: 70%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .continente {
+    margin: 10px 0;
+    color: #555;
+    font-size: 1rem;
+  }
+  
+  /* Agrega más estilos según tus necesidades */
+  

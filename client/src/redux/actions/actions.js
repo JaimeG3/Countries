@@ -10,7 +10,8 @@ import {
     ORDER_POBLACION,
     FORM,
     HANDLE_ERROR,
-    CLEAR_ERROR
+    CLEAR_ERROR,
+    BACK
 } from "./actions-Types"
 
 export const allCountrys = () => {
@@ -107,5 +108,12 @@ export const detail = (id) => {
       export const clearError = () => {
         return {
           type: CLEAR_ERROR,
+        };
+      };
+       
+      export const navBack = (event) => {
+        return {
+          type: BACK,
+          payload:event
         };
       };
